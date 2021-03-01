@@ -18,7 +18,7 @@
                             heidi.data.gouv.fr
                             </a>
                             <p class="rf-service__tagline">
-                            <i>Pour la publication de données de qualité</i>
+                            <i>Générateur d'identifiant à la volée</i>
                             </p>
                         </div>
                     </div>
@@ -28,11 +28,8 @@
 </template>
 
 <script>
-import ClientOnly from 'vue-client-only';
-
 export default {
   components: {
-    ClientOnly,
   },
 };
 </script>

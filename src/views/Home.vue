@@ -57,13 +57,17 @@ export default {
     generateUlid() {
         this.nbIds = 0;
       if(this.isNumber(this.nbIdBox)){
-        this.nbIds = this.nbIdBox;
-        this.arrayUlid = []
-        for(let i = 0; i < this.nbIdBox ; i++) {
-          let newid = ulid()
-          this.arrayUlid.push(newid);
+        if(this.nbIdBox < 3000) {
+          this.nbIds = this.nbIdBox;
+          this.arrayUlid = []
+          for(let i = 0; i < this.nbIdBox ; i++) {
+            let newid = ulid()
+            this.arrayUlid.push(newid);
+          }
+          this.messageError = ""
+        } else {
+          this.messageError = "Veuillez rentrer un nombre inférieur à 3000."
         }
-        this.messageError = ""
       }else{
         this.messageError = "Veuillez rentrer un nombre entier."
       }

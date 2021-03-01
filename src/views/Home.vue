@@ -1,34 +1,35 @@
 <template>
-    <div style="min-height: 500px">  
-        <div class="rf-container rf-pb-6w rf-pt-2w">
-          <h3>Besoin d'un identifiant unique ?</h3>
-          <div style="border: 2px solid #DFDFF1; padding: 20px; margin-top: 40px;">
-            <span style="background-color: #DFDFF1; color: #060191; font-weight: bold; padding: 5px;">Le voici : </span>
-            <br /><br />
-            <id-box></id-box>
-          </div>
-          <br /><br />
-          <h3>Besoin de plusieurs identifiants uniques ?</h3>
-          <p>Combien en désirez-vous :
-          <input type="text" v-model="nbIdBox" size="4"/>&nbsp;&nbsp;&nbsp;
-          <button v-on:click="generateUlid()" style="border: 0px; background-color: #DFDFF1; color: #060191; padding: 5px;">Générer</button>&nbsp;&nbsp;&nbsp;
-          <button v-if="nbIds > 0" v-clipboard:copy="copyids()" style="border: 0px; background-color: #DFDFF1; color: #060191; padding: 5px;">Tout copier</button>
-          </p>
-          <p>{{ messageError }}</p>
-
-          <div v-if="this.nbIds > 0" style="border: 2px solid #DFDFF1; padding: 20px; margin-top: 40px;">
-            <span style="background-color: #DFDFF1; color: #060191; font-weight: bold; padding: 5px;">Les voici : </span>
-            <br /><br />
-            <div v-for="id in arrayUlid" v-bind:key="id">
-              <span>{{ id }}</span>
+      <div style="min-height: 500px">  
+          <div class="rf-container rf-pb-6w rf-pt-2w">
+            <h3>Besoin d'un identifiant unique ?</h3>
+            <div style="border: 2px solid #DFDFF1; padding: 20px; margin-top: 40px;">
+              <span style="background-color: #DFDFF1; color: #060191; font-weight: bold; padding: 5px;">Le voici : </span>
+              <br /><br />
+              <id-box></id-box>
             </div>
-          </div>
+            <br /><br />
+            <h3>Besoin de plusieurs identifiants uniques ?</h3>
+            <p>Combien en souhaitez-vous :
+            <input type="text" v-model="nbIdBox" size="4"/>&nbsp;&nbsp;&nbsp;
+            <button v-on:click="generateUlid()" style="border: 0px; background-color: #DFDFF1; color: #060191; padding: 5px;">Générer</button>&nbsp;&nbsp;&nbsp;
+            <button v-if="nbIds > 0" v-clipboard:copy="copyids()" style="border: 0px; background-color: #DFDFF1; color: #060191; padding: 5px;">Tout copier</button>
+            </p>
+            <p>{{ messageError }}</p>
 
-        </div>
-    </div>
+            <div v-if="this.nbIds > 0" style="border: 2px solid #DFDFF1; padding: 20px; margin-top: 40px;">
+              <span style="background-color: #DFDFF1; color: #060191; font-weight: bold; padding: 5px;">Les voici : </span>
+              <br /><br />
+              <div v-for="id in arrayUlid" v-bind:key="id">
+                <span>{{ id }}</span>
+              </div>
+            </div>
+
+          </div>
+      </div>
 </template>
 
 <script>
+
 
 import IdBox from '../components/IdBox.vue';
 import { ulid } from 'ulid'

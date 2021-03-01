@@ -16,7 +16,10 @@ import FooterComponent from './views/FooterComponent.vue';
 
 export default {
   name: 'home',
-  components: { HeaderComponent, FooterComponent },
+  components: {
+    HeaderComponent, 
+    FooterComponent,
+  },
 };
 
 </script>

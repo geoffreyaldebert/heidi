@@ -12,7 +12,7 @@
     "now-build": "vue-cli-service build"
   },
   "dependencies": {
-    "@gouvfr/all": "^0.4.0",
+    "@gouvfr/all": "^0.5.3",
     "babel-runtime": "^6.26.0",
     "bootstrap-vue": "^2.0.0-rc.15",
     "date-fns": "^2.16.1",
@@ -27,6 +27,7 @@
     "vue-router": "^3.0.1",
     "vue-simple-accordion": "^0.1.0",
     "vue-simple-suggest": "^1.10.3",
+    "vue-uuid": "^2.0.2",
     "vuex": "^3.6.0"
   },
   "devDependencies": {

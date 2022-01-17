@@ -19,16 +19,14 @@
 
 
 <script>
-import { ulid } from 'ulid'
-
+import { uuid } from 'vue-uuid'; 
 
 export default {
   name: 'IdBox',
   components: {},
   data() {
     return {
-      toto: ulid(),
-      message: ulid(),
+      message: uuid.v4(),
       copyMessage: "Copier",
       visibleCopy: false
     };

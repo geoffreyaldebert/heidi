@@ -19,7 +19,7 @@
             <div v-if="this.nbIds > 0" style="border: 2px solid #DFDFF1; padding: 20px; margin-top: 40px;">
               <span style="background-color: #DFDFF1; color: #060191; font-weight: bold; padding: 5px;">Les voici : </span>
               <br /><br />
-              <div v-for="id in arrayUlid" v-bind:key="id">
+              <div v-for="id in arrayUuid" v-bind:key="id">
                 <span>{{ id }}</span>
               </div>
             </div>
@@ -32,7 +32,7 @@
 
 
 import IdBox from '../components/IdBox.vue';
-import { ulid } from 'ulid'
+import { uuid } from 'vue-uuid'; 
 
 export default {
   name: 'Home', 
@@ -44,7 +44,7 @@ export default {
       nbIdBox: null,
       messageError: '',
       nbIds: 0,
-      arrayUlid: [],
+      arrayUuid: [],
     };
   },
   mounted() {
@@ -59,10 +59,10 @@ export default {
       if(this.isNumber(this.nbIdBox)){
         if(this.nbIdBox < 3000) {
           this.nbIds = this.nbIdBox;
-          this.arrayUlid = []
+          this.arrayUuid = []
           for(let i = 0; i < this.nbIdBox ; i++) {
-            let newid = ulid()
-            this.arrayUlid.push(newid);
+            let newid = uuid.v4()
+            this.arrayUuid.push(newid);
           }
           this.messageError = ""
         } else {
@@ -77,11 +77,11 @@ export default {
     },
     copyids() {
       let str=""
-      for(let i = 0; i < this.arrayUlid.length ; i++) {
+      for(let i = 0; i < this.arrayUuid.length ; i++) {
         if(i != 0){
           str = str+"\n"
         }
-        str = str+this.arrayUlid[i];
+        str = str+this.arrayUuid[i];
       }
       return str;
     },
